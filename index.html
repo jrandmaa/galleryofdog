@@ -33,7 +33,13 @@
 
         img {
             width: 100%;
-            border: 15px solid #cda;
+            /*border: 15px solid #cda;*/
+        }
+
+        .rope {
+            width: 25%;
+            border: none;
+            margin: auto;
         }
 
 
@@ -44,8 +50,14 @@
 </head>
 <body onclick="changeImage()">
     <div class="wrapper">
-        <img src="img-sq/beans1.jpg" alt="">
+        <img src="img-sq/beans1.jpg" alt="dog">
+        
     </div>
+    <div class="rope">
+        <img src="img-sq/ropes.png" alt="gallery ropes">
+    </div>
+    <audio src="lobby.mp3" id="bg" loop="loop"></audio>
+    
 
     <script>
 
@@ -58,14 +70,14 @@
                 'img-sq/beans2.jpg',
                 'img-sq/freaks-cropped.jpg',
             ];
-        const BorderColors = [
+        /*const BorderColors = [
             '#877241',
             '#a37b58',
             '#7a3a53',
             '#4a3317',
             '#331d02',
             '#5e4c40',
-        ];
+        ];*/
         const checkerColors = [
             '#9ae3e3',
             '#919aeb',
@@ -78,12 +90,13 @@
         myImageElement.src = `${pathNames[1]}`;
         
         const changeImage = () => {
-            myImageElement.style.borderColor = BorderColors[Math.floor(Math.random()*BorderColors.length)];
+            /*myImageElement.style.borderColor = BorderColors[Math.floor(Math.random()*BorderColors.length)];*/
             document.body.style.backgroundColor = checkerColors[Math.floor(Math.random()*checkerColors.length)];
             myImageElement.src = `${pathNames[Math.floor(Math.random()*pathNames.length)]}`;
-        
         }
-        
+        window.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById("bg").play();
+        });
         </script>
 
 </body>
