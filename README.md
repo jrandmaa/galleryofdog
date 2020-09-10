@@ -1,3 +1,3 @@
-# jeremy-bearimy-starter
+# GALLERY OF DOG
 
-starter code for side effects day 5
+welcome to my dog gallery
