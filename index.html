@@ -28,18 +28,29 @@
             width: 500px;
             height: auto;
             margin: auto;
-            
+            box-shadow: 10px 10px 10px black;
+        }
+
+        .exit {
+            display: inline-block;
+        }
+        .giftshop {
+            display: inline-block;
         }
 
         img {
             width: 100%;
             /*border: 15px solid #cda;*/
         }
-
+        .floor {
+            width: 100%;
+            
+        }
         .rope {
-            width: 25%;
+            width: 30%;
             border: none;
             margin: auto;
+            display: inline-block;
         }
 
 
@@ -49,13 +60,25 @@
     <title>GALLERY OF DOG</title>
 </head>
 <body onclick="changeImage()">
+    
     <div class="wrapper">
         <img src="img-sq/beans1.jpg" alt="dog">
         
     </div>
-    <div class="rope">
-        <img src="img-sq/ropes.png" alt="gallery ropes">
-    </div>    
+    
+    
+    <div class="floor">
+        <div class="giftshop">
+                <a href="gallery-giftshop.html"><img src="img-sq/giftshop.png" alt="EXIT" style="width:100px;height:100px;"></a>
+        </div> 
+        <div class="rope">
+            <img src="img-sq/ropes.png" alt="gallery ropes">
+        </div>
+        <div class="exit">
+                <a href="gallery-outside.html"><img src="img-sq/exit.png" alt="EXIT" style="width:100px;height:100px;"></a>
+        </div> 
+    </div>
+       
 
     <script>
 
@@ -104,5 +127,7 @@
         <source src="img-sq/lobby.mp3" type="audio/mpeg">
       Your browser does not support the audio element. 🤷‍
       </audio>
+
+      
 </html>
 
