@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-    
+    <audio id="bgmusic" src="img-sq/lobby.mp3" preload="auto"></audio>
+
     <style>
         
         body {
@@ -114,20 +115,20 @@
             /*myImageElement.style.borderColor = BorderColors[Math.floor(Math.random()*BorderColors.length)];*/
             document.body.style.backgroundColor = checkerColors[Math.floor(Math.random()*checkerColors.length)];
             myImageElement.src = `${pathNames[Math.floor(Math.random()*pathNames.length)]}`;
+            document.getElementById('bgmusic').play();
         }
-        window.addEventListener('DOMContentLoaded', (event) => {
+        /*window.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById("bg").play();
-        });
+        });*/
         </script>
 
 </body>
-
-<audio controls loop>
+<!--<audio controls autoplay loop>
         <source src="img-sq/lobby.ogg" type="audio/ogg">
         <source src="img-sq/lobby.mp3" type="audio/mpeg">
       Your browser does not support the audio element. 🤷‍
-      </audio>
-
+      </audio>-->
+      
       
 </html>
 

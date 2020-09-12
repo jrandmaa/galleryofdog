@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <audio id="bgmusic" src="img-sq/ambient-giftshop.mp3" preload="auto"></audio>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     
          <!---- <div class="exit">
@@ -34,13 +35,18 @@
     <title>Outside...</title>
 </head>
 
-<body>
+<body onmousemove="ambient()">
     <div class="bg"> 
         <div class="sign">
                 <a href="index.html"><img src="img-sq/gallery-sign.png" alt="EXIT" style="width:100px;height:100px;"></a>
         </div>
     </div>
-
+<script>
+        
+        const ambient = () => {
+            document.getElementById('bgmusic').play();
+        }
+</script>
 </body>
 </html>
 
