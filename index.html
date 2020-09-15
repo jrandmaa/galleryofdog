@@ -8,6 +8,7 @@
 
     <style>
         
+
         body {
             /* stackoverflow help with making checkerboard*/
             background-image: linear-gradient(45deg, #f7a3a8 25%, transparent 25%), 
@@ -24,6 +25,12 @@
             margin-top: 10px;
         }
 
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
 
         .wrapper {
             width: 500px;
@@ -53,6 +60,14 @@
             margin: auto;
             display: inline-block;
         }
+        .item {
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        .item :hover {
+            transform: scale(1.1);
+            box-shadow: 10px 10px 10px black;
+        }
 
 
     </style>
@@ -62,8 +77,9 @@
 </head>
 <body onclick="changeImage()">
     
-    <div class="wrapper">
-        <img src="img-sq/beans1.jpg" alt="dog">
+    <div class="container">
+
+        <!--<img src="img-sq/1.jpg" alt="dog">-->
         
     </div>
     
@@ -84,14 +100,40 @@
     <script>
 
         /*        sup        */
-        const pathNames = [
+        /*const pathNames = [
                 'img-sq/gubs1.jpg',
                 'img-sq/gubs2.jpg',
                 'img-sq/gubs3.jpg',
                 'img-sq/beans1.jpg',
                 'img-sq/beans2.jpg',
                 'img-sq/freaks-cropped.jpg',
-            ];
+            ];*/
+        const numImgs = 6;
+        const imgPaths = Array.from({ length: numImgs });
+        imgPaths.forEach((e,i) => {
+            imgPaths[i]=`img-sq/${i}.jpg`;
+            });
+            //let's log this out so we can be sure it's working.
+        console.log(imgPaths);
+        //let's do a naive shuffle of the paths
+        imgPaths.sort((a,b) => (0.5 - Math.random()) );
+        //huh?  don't worry about it for now!
+        //now create our divs
+        const makeDiv = () => document.createElement('div');
+        const divs = Array.from({ length: numImgs }, ()=> makeDiv());
+        divs.forEach(div=>div.className='item');
+        //create our img tags and add one image path to each one
+        const makeImg = () => document.createElement('img');
+        const imgs = Array.from({ length: numImgs }, ()=>makeImg());
+        imgs.forEach((img, i) => img.src=imgPaths[i]);
+        //let's grab a reference to the container
+        const container = document.querySelector('.container');
+        //now let's add all these parts together
+        divs.forEach((div, i)=>{
+            div.appendChild(imgs[i]);
+            container.appendChild(div);
+            
+        })
         /*const BorderColors = [
             '#877241',
             '#a37b58',
@@ -110,11 +152,11 @@
         ];
         const myImageElement = document.body.querySelector('img');
         myImageElement.src = `${pathNames[1]}`;
-        
+        var x = 0;
         const changeImage = () => {
             /*myImageElement.style.borderColor = BorderColors[Math.floor(Math.random()*BorderColors.length)];*/
             document.body.style.backgroundColor = checkerColors[Math.floor(Math.random()*checkerColors.length)];
-            myImageElement.src = `${pathNames[Math.floor(Math.random()*pathNames.length)]}`;
+            //myImageElement.src = `${pathNames[Math.floor(Math.random()*pathNames.length)]}`;
             document.getElementById('bgmusic').play();
         }
         /*window.addEventListener('DOMContentLoaded', (event) => {
