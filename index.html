@@ -146,23 +146,24 @@
         const myImageElement = document.body.querySelector('img');
         myImageElement.src = `${pathNames[1]}`;
         var x = 0;
-        const changeImage = () => {
-            /*myImageElement.style.borderColor = BorderColors[Math.floor(Math.random()*BorderColors.length)];*/
+        /*const changeImage = () => {
+            //myImageElement.style.borderColor = BorderColors[Math.floor(Math.random()*BorderColors.length)];
             document.body.style.backgroundColor = checkerColors[Math.floor(Math.random()*checkerColors.length)];
             //myImageElement.src = `${pathNames[Math.floor(Math.random()*pathNames.length)]}`;
             //document.getElementById('bgmusic').play();
-        }
-        /*window.addEventListener('DOMContentLoaded', (event) => {
-            document.getElementById("bg").play();
-        });*/
+        }*/
+
         const music = () => {
             document.getElementById('bgmusic').play();
-            startTimer();
+            //startTimer();
         }
 
+        function changeBG(){
+            document.body.style.backgroundColor = checkerColors[Math.floor(Math.random()*checkerColors.length)];
+        }
 
         function startTimer() {
-              setInterval(changeImage, 1000);
+              setInterval(changeBG, 1000);
         }
         </script>
 
