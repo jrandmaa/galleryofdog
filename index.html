@@ -32,12 +32,12 @@
             justify-content: center;
         }
 
-        .wrapper {
+        /*.wrapper {
             width: 500px;
             height: auto;
             margin: auto;
             box-shadow: 10px 10px 10px black;
-        }
+        }*/
 
         .exit {
             display: inline-block;
@@ -75,7 +75,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GALLERY OF DOG</title>
 </head>
-<body onclick="changeImage()">
+<body onmousemove="music()">
     
     <div class="container">
 
@@ -113,22 +113,15 @@
         imgPaths.forEach((e,i) => {
             imgPaths[i]=`img-sq/${i}.jpg`;
             });
-            //let's log this out so we can be sure it's working.
-        console.log(imgPaths);
-        //let's do a naive shuffle of the paths
         imgPaths.sort((a,b) => (0.5 - Math.random()) );
-        //huh?  don't worry about it for now!
-        //now create our divs
+
         const makeDiv = () => document.createElement('div');
         const divs = Array.from({ length: numImgs }, ()=> makeDiv());
         divs.forEach(div=>div.className='item');
-        //create our img tags and add one image path to each one
         const makeImg = () => document.createElement('img');
         const imgs = Array.from({ length: numImgs }, ()=>makeImg());
         imgs.forEach((img, i) => img.src=imgPaths[i]);
-        //let's grab a reference to the container
         const container = document.querySelector('.container');
-        //now let's add all these parts together
         divs.forEach((div, i)=>{
             div.appendChild(imgs[i]);
             container.appendChild(div);
@@ -157,11 +150,20 @@
             /*myImageElement.style.borderColor = BorderColors[Math.floor(Math.random()*BorderColors.length)];*/
             document.body.style.backgroundColor = checkerColors[Math.floor(Math.random()*checkerColors.length)];
             //myImageElement.src = `${pathNames[Math.floor(Math.random()*pathNames.length)]}`;
-            document.getElementById('bgmusic').play();
+            //document.getElementById('bgmusic').play();
         }
         /*window.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById("bg").play();
         });*/
+        const music = () => {
+            document.getElementById('bgmusic').play();
+            startTimer();
+        }
+
+
+        function startTimer() {
+              setInterval(changeImage, 1000);
+        }
         </script>
 
 </body>
